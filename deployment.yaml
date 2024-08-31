@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: githubpf-deployment
+spec:
+  replicas: 6  # Number of desired replicas
+  selector:
+    matchLabels:
+      app: githubpf
+  template:
+    metadata:
+      labels:
+        app: githubpf
+    spec:
+      containers:
+      - name: githubpf
+        image: yash5090/githubpf:latest
+        ports:
+        - containerPort: 3000
